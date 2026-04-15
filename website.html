@@ -24,6 +24,7 @@ nav{background:var(--white);border-bottom:0px solid #ddd;position:sticky;top:0;z
 .page{display:none}
 .page.active{display:block}
 
+
 /* SECTIONS */
 section{padding:5rem 2rem}
 .container{max-width:1100px;margin:0 auto}
@@ -147,11 +148,13 @@ footer{background:var(--green);color:#fff;padding:3rem 2rem}
 }
 
 
-/* --- Base Navigation Styles (Desktop) --- */
 .navbar {
-  background-color: #1A5247; /* Adjust to your brand color */
+  background-color: #1A5247; 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.258);
-  position: relative; /* Needed for the absolute positioning of mobile menu */
+  position: fixed; 
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .nav-inner {
@@ -161,6 +164,7 @@ footer{background:var(--green);color:#fff;padding:3rem 2rem}
   padding: 15px 20px;
   max-width: 1200px;
   margin: 0 auto;
+  position: sticky !important;
 }
 
 .nav-logo {
@@ -178,19 +182,20 @@ footer{background:var(--green);color:#fff;padding:3rem 2rem}
   color: #ffffff;
   cursor: pointer;
   transition: color 0.3s;
+
 }
 
 .nav-links a:hover, .nav-links a.active {
-  color: #b5622e; /* Your active hover color */
+  color: #b5622e;
 }
 
-/* Hide hamburger by default */
 .hamburger {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
   padding: 5px;
+  z-index: 100;
 }
 
 .hamburger .bar {
@@ -202,38 +207,47 @@ footer{background:var(--green);color:#fff;padding:3rem 2rem}
   transition: all 0.3s ease-in-out;
 }
 
-/* --- Mobile & Tablet Styles --- */
 @media (max-width: 1268px) {
   .hamburger {
-    display: block; /* Show hamburger icon */
+    display: block;
   }
 
   .nav-links {
-    display: none; /* Hide links initially */
+    display: none;
     flex-direction: column;
     width: 100%;
     position: absolute;
-    top: 100%; /* Positions it right below the nav-inner */
+    top: 100%; 
     background-color: #1A5247;
      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.258);
     padding: 20px 0;
-    gap: 15px;
+    gap: 25px;
     text-align: center;
     z-index: 100;
+
+  }
+  .nav-links a {
+    font-size: 15px !important;
   }
 
-  /* This class is toggled by JavaScript */
   .nav-links.active-menu {
     display: flex;
   }
+}
+.page {
+  margin-top:50px
 }
 
 @media (max-width: 1268px) and (min-width: 600px) {
   .nav-links {
     right: 0% !important;
     width: 30% !important;
+    top:0%;
+    z-index: 0 !important;
+    padding-top: 50px;
+    margin-top: -32px;
   }
-}
+  }
 @media (max-width: 600px) {
   .nav-links {
  right: 0% !important;
